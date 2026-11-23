@@ -12,7 +12,6 @@
   const UI = {
     tabs: [
       ["inicio",        { es: "Inicio", en: "Home", fr: "Accueil" }],
-      ["sobre-mi",      { es: "Sobre mí", en: "About", fr: "À propos" }],
       ["investigacion", { es: "Investigación y proyectos", en: "Research & projects", fr: "Recherche et projets" }],
       ["tecnicas",      { es: "Técnicas", en: "Techniques", fr: "Techniques" }],
       ["casos",         { es: "Casos de estudio", en: "Study cases", fr: "Études de cas" }],
@@ -49,7 +48,8 @@
     heroHint: { es: "Foto de fondo", en: "Background photo", fr: "Photo de fond" },
     portrait: { es: "Tu foto", en: "Your photo", fr: "Ta photo" },
     photo: { es: "Foto", en: "Photo", fr: "Photo" },
-    cv: { es: "Descargar CV", en: "Download CV", fr: "Télécharger le CV" }
+    cv: { es: "Descargar CV", en: "Download CV", fr: "Télécharger le CV" },
+    more: { es: "Sobre mí", en: "About me", fr: "À propos" }
   };
 
   /* ---------- utilidades ---------- */
@@ -85,18 +85,21 @@
           ${cv ? `<div class="btns">${cv}</div>` : ""}
           ${social ? `<div class="social">${social}</div>` : ""}
         </div>
+        <a class="scroll-cue" href="#sobre-mi" data-scroll="sobre-mi">${t(UI.more)}<span aria-hidden="true">↓</span></a>
       </section>
       <section class="logos"><div class="wrap">
         <span class="cap">${t(UI.workedWith)}</span>
         ${S.logos.map((l) => `<div class="logo${l.white ? " has-white" : ""}" title="${esc(l.name)}">${l.img
           ? (l.white ? `<img class="w" src="${esc(l.white)}" alt="${esc(l.name)}">` : "") + `<img class="c" src="${esc(l.img)}" alt="${esc(l.name)}" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:this.alt}))">`
           : `<span>${esc(l.name)}</span>`}</div>`).join("")}
-      </div></section>`;
+      </div></section>
+      <section id="sobre-mi" class="about-sec">${about()}</section>`;
   }
 
+  /* "Sobre mí" va dentro de la portada (debajo de los logos) */
   function about() {
     const S = SITE;
-    return `<div class="wrap page"><div class="about">
+    return `<div class="wrap page"><div class="about${S.portrait ? "" : " solo"}">
       <div>
         <h1 class="title">${t(UI.about)}</h1>
         ${t(S.about).split(/\n\s*\n/).map((p) => `<p class="pre">${esc(p)}</p>`).join("")}
@@ -108,7 +111,7 @@
         <h2>${t(UI.interests)}</h2>
         <div class="chips">${S.interests.map((i) => `<span class="chip">${esc(t(i))}</span>`).join("")}</div>
       </div>
-      <div>${photo(S.portrait, UI.portrait, "r34")}</div>
+      ${S.portrait ? `<div class="portrait">${photo(S.portrait, { es: "Berta Ruiz Palenzuela en el laboratorio", en: "Berta Ruiz Palenzuela in the lab", fr: "Berta Ruiz Palenzuela au laboratoire" }, "r43")}</div>` : ""}
     </div></div>`;
   }
 
@@ -217,6 +220,7 @@
     const h = (location.hash || "#inicio").slice(1);
     const m = h.match(/^caso-(\d+)$/);
     if (m) return ["casos", +m[1] - 1];
+    if (h === "sobre-mi") return ["inicio", null];      // enlaces antiguos a "Sobre mí"
     return [UI.tabs.some(([id]) => id === h) ? h : "inicio", null];
   }
 
@@ -226,7 +230,7 @@
     document.getElementById("tabs").innerHTML = UI.tabs
       .map(([k, name]) => `<li><a href="#${k}" ${k === id ? 'aria-current="page"' : ""}>${t(name)}</a></li>`).join("");
     document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lang === lang));
-    const views = { inicio: home, "sobre-mi": about, investigacion: research, tecnicas: techniques,
+    const views = { inicio: home, investigacion: research, tecnicas: techniques,
       casos: () => (caseIdx != null ? caseDetail(caseIdx) : cases()), publicaciones: publications, contacto: contact };
     document.getElementById("main").innerHTML = views[id]();
     document.getElementById("footer").textContent = `© ${new Date().getFullYear()} Berta Ruiz Palenzuela`;
@@ -235,6 +239,8 @@
   document.addEventListener("click", (e) => {
     const l = e.target.closest("[data-lang]");
     if (l) { lang = l.dataset.lang; try { localStorage.setItem("brp-lang", lang); } catch (_) {} render(); return; }
+    const s = e.target.closest("[data-scroll]");
+    if (s) { e.preventDefault(); const el = document.getElementById(s.dataset.scroll); if (el) el.scrollIntoView({ behavior: "smooth" }); return; }
     const f = e.target.closest("[data-filter]");
     if (f) { techFilter = f.dataset.filter; render(); return; }
     if (e.target.id === "copy-mail") {
@@ -242,6 +248,7 @@
       navigator.clipboard.writeText(SITE.email).then(() => { b.textContent = t(UI.copied); }).catch(() => {});
     }
   });
-  window.addEventListener("hashchange", () => { render(); window.scrollTo(0, 0); });
-  render();
+  const toAbout = () => { if (location.hash === "#sobre-mi") { const el = document.getElementById("sobre-mi"); if (el) el.scrollIntoView(); } };
+  window.addEventListener("hashchange", () => { render(); window.scrollTo(0, 0); toAbout(); });
+  render(); toAbout();
 })();

@@ -25,7 +25,7 @@ const SITE = {
     fr: "Caractérisation des matériaux · Lien microstructure–propriétés\nEssais mécaniques · Microscopie · Contrôle non destructif"
   },
   heroImage: "img/photos/img_5514.jpg",            // foto de fondo de la portada, p. ej. "img/portada.jpg"
-  portrait: "",             // tu foto para "Sobre mí", p. ej. "img/berta.jpg"
+  portrait: "img/photos/berta-lab.jpg",   // tu foto para "Sobre mí" (pantalla, notas y pizarra difuminadas)
   cvPdf: { es: "", en: "", fr: "" },   // p. ej. "../cv/CV_Berta_Ruiz_ES.pdf"
 
   linkedin: "https://www.linkedin.com/in/bruizpalen/",
