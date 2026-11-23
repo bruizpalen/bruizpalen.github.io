@@ -129,7 +129,6 @@
             <p>${esc(t(p.text))}</p>
             ${did.length ? `<div class="tag" style="margin-bottom:6px">${t(UI.did)}</div><ul class="did">${did.map((d) => `<li>${esc(d)}</li>`).join("")}</ul>` : ""}
             <div class="chips">
-              ${(p.temps || []).map((x) => `<span class="chip temp">${esc(x)}</span>`).join("")}
               ${(p.tags || []).map((x) => `<span class="chip">${esc(t(x))}</span>`).join("")}
             </div>
             ${p.photos && p.photos.length ? `<div class="gallery">${p.photos.map((f) => `<figure>${photo(f.img, UI.photo, "r43")}<figcaption>${esc(t(f.cap))}</figcaption></figure>`).join("")}</div>` : ""}
