@@ -141,7 +141,11 @@ const SITE = {
         fr: ["Essais de traction sur différentes géométries d’éprouvettes pour étudier le comportement en déformation selon différents chemins de déformation.", "Corrélation d’images numériques (DIC) pour mesurer les champs de déformation et analyser la déformation pendant l’essai.", "Co-autrice dans Materials & Design (2024)."]
       },
       tags: ["Cu-OFE", "DIC"],
-      photos: [{ img: "", cap: { es: "Cavidad hidroconformada", en: "Hydroformed cavity", fr: "Cavité hydroformée" } }]
+      photos: [
+        { img: "img/photos/cuofe-hidroconformado.jpg", cap: { es: "Tubo de Cu-OFE y pieza hidroconformada", en: "Cu-OFE tube and hydroformed part", fr: "Tube de Cu-OFE et pièce hydroformée" } },
+        { img: "img/photos/cuofe-microestructura.jpg", cap: { es: "Microestructura del Cu-OFE (microscopía óptica)", en: "Cu-OFE microstructure (optical microscopy)", fr: "Microstructure du Cu-OFE (microscopie optique)" } },
+        { img: "img/photos/cuofe-fractura-traccion.jpg", cap: { es: "Fractura de una probeta de tracción de Cu-OFE", en: "Fracture of a Cu-OFE tensile specimen", fr: "Rupture d’une éprouvette de traction en Cu-OFE" } }
+      ]
     },
     {
       when: { es: "2020\n2021", en: "2020\n2021", fr: "2020\n2021" },
