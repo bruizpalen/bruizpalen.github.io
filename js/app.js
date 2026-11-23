@@ -128,9 +128,6 @@
             <h2>${esc(t(p.title))}</h2>
             <p>${esc(t(p.text))}</p>
             ${did.length ? `<div class="tag" style="margin-bottom:6px">${t(UI.did)}</div><ul class="did">${did.map((d) => `<li>${esc(d)}</li>`).join("")}</ul>` : ""}
-            <div class="chips">
-              ${(p.tags || []).map((x) => `<span class="chip">${esc(t(x))}</span>`).join("")}
-            </div>
             ${p.photos && p.photos.length ? `<div class="gallery">${p.photos.map((f) => `<figure>${photo(f.img, UI.photo, "r43")}<figcaption>${esc(t(f.cap))}</figcaption></figure>`).join("")}</div>` : ""}
           </article>
         </li>`;
@@ -161,7 +158,7 @@
       <div class="cases">${SITE.cases.map((c, i) => `
         <a class="case-card" href="#caso-${i + 1}">
           ${photo(c.photos[0] && c.photos[0].img, c.photos[0] ? c.photos[0].cap : UI.photo, "r169")}
-          <div class="body"><span class="tag">${esc(t(c.tag))}</span><h3>${esc(t(c.title))}</h3><p>${esc(t(c.context))}</p><span class="more">${t(UI.read)}</span></div>
+          <div class="body"><h3>${esc(t(c.title))}</h3><p>${esc(t(c.context))}</p><span class="more">${t(UI.read)}</span></div>
         </a>`).join("")}</div>
     </div>`;
   }
@@ -172,7 +169,7 @@
     return `<div class="wrap page">
       <a class="back" href="#casos">${t(UI.back)}</a>
       <div class="case-head">
-        <div><span class="tag">${esc(t(c.tag))}</span><h1>${esc(t(c.title))}</h1></div>
+        <div><h1>${esc(t(c.title))}</h1></div>
         ${photo(c.photos[0] && c.photos[0].img, c.photos[0] ? c.photos[0].cap : UI.photo, "r169")}
       </div>
       <div class="steps">

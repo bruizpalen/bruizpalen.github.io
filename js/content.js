@@ -24,8 +24,8 @@ const SITE = {
     en: "Materials characterisation · Linking microstructure and properties\nMechanical testing · Microscopy · Non-destructive testing",
     fr: "Caractérisation des matériaux · Lien microstructure–propriétés\nEssais mécaniques · Microscopie · Contrôle non destructif"
   },
-  heroImage: "img/photos/img_5514.jpg",            // foto de fondo de la portada, p. ej. "img/portada.jpg"
-  portrait: "img/photos/berta-lab.jpg",   // tu foto para "Sobre mí" (pantalla, notas y pizarra difuminadas)
+  heroImage: "img/perfil/portada.jpg",            // foto de fondo de la portada, p. ej. "img/portada.jpg"
+  portrait: "img/perfil/berta-lab.jpg",   // tu foto para "Sobre mí" (pantalla, notas y pizarra difuminadas)
   cvPdf: { es: "", en: "", fr: "" },   // p. ej. "../cv/CV_Berta_Ruiz_ES.pdf"
 
   linkedin: "https://www.linkedin.com/in/bruizpalen/",
@@ -92,13 +92,12 @@ const SITE = {
         en: ["Design and conduct fracture toughness and tensile tests in liquid helium (4.2 K) and liquid nitrogen (77 K), and fatigue tests at 4.2 K, covering test planning, set-up, procedure development, execution and data interpretation.", "Investigate microstructure–property relationships in austenitic stainless steels, including 316LNH, FXM-19 and P506, using optical microscopy, SEM/EDS, EBSD and TEM.", "Conduct failure analyses and defect assessments by combining microstructural characterisation, mechanical testing and non-destructive testing (NDT) results, including investigations of welds, brazed joints, internal porosity and processing defects.", "Specify and evaluate VT, RT, PT, CT and UT inspections to assess material and component soundness, including weld qualification.", "Analyse FIB cross-sections to assess defect depth and corrosion oxide layer thickness.", "Plan, prepare and execute test campaigns for supplier qualification, including management of outsourced testing contracts.", "Collaborate with ITER, F4E and forging suppliers, and present findings to CERN project teams and external partners."],
         fr: ["Conception et réalisation d’essais de ténacité à la rupture et de traction dans l’hélium liquide (4,2 K) et l’azote liquide (77 K), et d’essais de fatigue à 4,2 K : planification, montage, développement de la procédure, exécution et interprétation des données.", "Relations microstructure–propriétés dans des aciers inoxydables austénitiques (316LNH, FXM-19, P506) par microscopie optique, MEB/EDS, EBSD et MET.", "Analyses de défaillance et évaluation de défauts combinant caractérisation microstructurale, essais mécaniques et résultats de CND : soudures, assemblages brasés, porosité interne et défauts d’élaboration.", "Spécification et évaluation de contrôles VT, RT, PT, CT et UT pour évaluer la santé des matériaux et des composants, y compris la qualification de soudures.", "Analyse de coupes FIB pour évaluer la profondeur des défauts et l’épaisseur des couches d’oxyde de corrosion.", "Planification, préparation et exécution de campagnes d’essais pour la qualification de fournisseurs, y compris la gestion de contrats d’essais externalisés.", "Collaboration avec ITER, F4E et des forgerons, et présentation des résultats aux équipes projet du CERN et aux partenaires externes."]
       },
-      tags: ["316LNH", "FXM-19", "P506", "EBSD", "TEM"],
       photos: [
-        { img: "img/photos/img_5128.jpg", cap: { es: "Probetas de tenacidad a la fractura pulidas", en: "Polished fracture toughness specimens", fr: "Éprouvettes de ténacité à la rupture polies" } },
-        { img: "img/photos/img_4900.jpg", cap: { es: "Probeta de tracción con extensómetro en el criostato", en: "Tensile specimen with extensometer in the cryostat", fr: "Éprouvette de traction avec extensomètre dans le cryostat" } },
-        { img: "img/videos/criostato.mov", cap: { es: "Criostato tras un ensayo a temperatura criogénica", en: "Cryostat after a cryogenic test", fr: "Cryostat après un essai cryogénique" } },
-        { img: "img/videos/forja.webp", cap: { es: "Forja en un proveedor de piezas forjadas", en: "Forging at a forging supplier", fr: "Forgeage chez un fournisseur" } },
-        { img: "img/photos/P506_EBSD_CL_highmag.png", cap: { es: "Mapa EBSD", en: "EBSD map", fr: "Carte EBSD" } }
+        { img: "img/proyectos/01-doctorado/probetas-tenacidad.jpg", cap: { es: "Probetas de tenacidad a la fractura pulidas", en: "Polished fracture toughness specimens", fr: "Éprouvettes de ténacité à la rupture polies" } },
+        { img: "img/proyectos/01-doctorado/traccion-criostato.jpg", cap: { es: "Probeta de tracción con extensómetro en el criostato", en: "Tensile specimen with extensometer in the cryostat", fr: "Éprouvette de traction avec extensomètre dans le cryostat" } },
+        { img: "img/proyectos/01-doctorado/criostato.mov", cap: { es: "Criostato tras un ensayo a temperatura criogénica", en: "Cryostat after a cryogenic test", fr: "Cryostat après un essai cryogénique" } },
+        { img: "img/proyectos/01-doctorado/forja.webp", cap: { es: "Forja en un proveedor de piezas forjadas", en: "Forging at a forging supplier", fr: "Forgeage chez un fournisseur" } },
+        { img: "img/proyectos/01-doctorado/ebsd-p506.jpg", cap: { es: "Mapa EBSD", en: "EBSD map", fr: "Carte EBSD" } }
 
       ]
     },
@@ -117,12 +116,11 @@ const SITE = {
         en: ["Performed tensile testing, differential scanning calorimetry (DSC) for oxidation induction time (OIT), and FTIR analysis to assess mechanical and chemical degradation of aged cable polymers.", "Developed experimental procedures for the characterisation of aged cable polymers.", "Planned irradiation and non-ionising ageing campaigns, including sampling plans and irradiation set-ups adapted to each facility.", "Coordinated experimental work with project partners and irradiation facilities, including sample placement and recovery."],
         fr: ["Essais de traction, calorimétrie différentielle à balayage (DSC) pour le temps d’induction à l’oxydation (OIT) et FTIR pour évaluer la dégradation mécanique et chimique de polymères de câbles vieillis.", "Développement de procédures expérimentales pour la caractérisation des polymères de câbles vieillis.", "Planification de campagnes d’irradiation et de vieillissement non ionisant, avec plans d’échantillonnage et montages d’irradiation adaptés à chaque installation.", "Coordination du travail expérimental avec les partenaires du projet et les installations d’irradiation, y compris la mise en place et la récupération des échantillons."]
       },
-      tags: [{ es: "Polímeros", en: "Polymers", fr: "Polymères" }, "DSC", "FTIR"],
       photos: [
-        { img: "img/photos/img_03228.jpg", cap: { es: "Tracción de polímero de cable envejecido", en: "Tensile test of an aged cable polymer", fr: "Traction d’un polymère de câble vieilli" } },
-        { img: "img/videos/care-traccion.mov", cap: { es: "Ensayo de tracción de aislante de cable", en: "Tensile test of cable insulation", fr: "Essai de traction d’isolant de câble" } },
-        { img: "img/photos/img_06532.jpg", cap: { es: "Muestras preparadas para irradiación", en: "Samples prepared for irradiation", fr: "Échantillons préparés pour l’irradiation" } },
-        { img: "img/photos/img_45562.jpg", cap: { es: "Sección de cable", en: "Cable cross-section", fr: "Section de câble" } }
+        { img: "img/proyectos/02-care/traccion-polimero.jpg", cap: { es: "Tracción de polímero de cable envejecido", en: "Tensile test of an aged cable polymer", fr: "Traction d’un polymère de câble vieilli" } },
+        { img: "img/proyectos/02-care/traccion-aislante.mov", cap: { es: "Ensayo de tracción de aislante de cable", en: "Tensile test of cable insulation", fr: "Essai de traction d’isolant de câble" } },
+        { img: "img/proyectos/02-care/muestras-irradiacion.jpg", cap: { es: "Muestras preparadas para irradiación", en: "Samples prepared for irradiation", fr: "Échantillons préparés pour l’irradiation" } },
+        { img: "img/proyectos/02-care/seccion-cable.jpg", cap: { es: "Sección de cable", en: "Cable cross-section", fr: "Section de câble" } }
       ]
     },
     {
@@ -140,11 +138,10 @@ const SITE = {
         en: ["Performed tensile tests using different specimen geometries to investigate deformation behaviour under different strain paths.", "Used digital image correlation (DIC) to measure strain fields and analyse deformation during testing.", "Co-author in Materials & Design (2024)."],
         fr: ["Essais de traction sur différentes géométries d’éprouvettes pour étudier le comportement en déformation selon différents chemins de déformation.", "Corrélation d’images numériques (DIC) pour mesurer les champs de déformation et analyser la déformation pendant l’essai.", "Co-autrice dans Materials & Design (2024)."]
       },
-      tags: ["Cu-OFE", "DIC"],
       photos: [
-        { img: "img/photos/cuofe-hidroconformado.jpg", cap: { es: "Tubo de Cu-OFE y pieza hidroconformada", en: "Cu-OFE tube and hydroformed part", fr: "Tube de Cu-OFE et pièce hydroformée" } },
-        { img: "img/photos/cuofe-microestructura.jpg", cap: { es: "Microestructura del Cu-OFE (microscopía óptica)", en: "Cu-OFE microstructure (optical microscopy)", fr: "Microstructure du Cu-OFE (microscopie optique)" } },
-        { img: "img/photos/cuofe-fractura-traccion.jpg", cap: { es: "Fractura de una probeta de tracción de Cu-OFE", en: "Fracture of a Cu-OFE tensile specimen", fr: "Rupture d’une éprouvette de traction en Cu-OFE" } }
+        { img: "img/proyectos/03-practicas-cern/hidroconformado.jpg", cap: { es: "Tubo de Cu-OFE y pieza hidroconformada", en: "Cu-OFE tube and hydroformed part", fr: "Tube de Cu-OFE et pièce hydroformée" } },
+        { img: "img/proyectos/03-practicas-cern/microestructura.jpg", cap: { es: "Microestructura del Cu-OFE (microscopía óptica)", en: "Cu-OFE microstructure (optical microscopy)", fr: "Microstructure du Cu-OFE (microscopie optique)" } },
+        { img: "img/proyectos/03-practicas-cern/fractura-traccion.jpg", cap: { es: "Fractura de una probeta de tracción de Cu-OFE", en: "Fracture of a Cu-OFE tensile specimen", fr: "Rupture d’une éprouvette de traction en Cu-OFE" } }
       ]
     },
     {
@@ -162,8 +159,10 @@ const SITE = {
         en: ["Performed stress-relaxation tests at different temperatures using a Gleeble thermomechanical simulator to determine activation volumes.", "Combined high-temperature nanoindentation with TEM characterisation to relate local mechanical response to microstructural features."],
         fr: ["Essais de relaxation de contraintes à différentes températures sur simulateur thermomécanique Gleeble pour déterminer les volumes d’activation.", "Nanoindentation à haute température combinée au MET pour relier la réponse mécanique locale aux caractéristiques microstructurales."]
       },
-      tags: ["γ-TiAl", "TEM", { es: "Nanoindentación", en: "Nanoindentation", fr: "Nanoindentation" }],
-      photos: [{ img: "", cap: { es: "Microestructura (TEM)", en: "Microstructure (TEM)", fr: "Microstructure (MET)" } }]
+      photos: [
+        { img: "img/proyectos/04-tfm-tial/tem-laminas.jpg", cap: { es: "Láminas γ/α₂ en γ-TiAl (TEM, campo claro)", en: "γ/α₂ lamellae in γ-TiAl (TEM, bright field)", fr: "Lamelles γ/α₂ dans γ-TiAl (MET, champ clair)" } },
+        { img: "img/proyectos/04-tfm-tial/tem-colonias.jpg", cap: { es: "Colonias laminares en γ-TiAl (TEM, campo claro)", en: "Lamellar colonies in γ-TiAl (TEM, bright field)", fr: "Colonies lamellaires dans γ-TiAl (MET, champ clair)" } }
+      ]
     },
     {
       when: { es: "2020", en: "2020", fr: "2020" },
@@ -180,7 +179,6 @@ const SITE = {
         en: ["Identified retained austenite islands in quenching and partitioning martensitic stainless steels by combining AFM and EBSD."],
         fr: ["Identification d’îlots d’austénite résiduelle dans des aciers inoxydables martensitiques trempés et partitionnés en combinant AFM et EBSD."]
       },
-      tags: ["Q&P", "AFM", "EBSD"],
       photos: [{ img: "", cap: { es: "Mapa AFM + EBSD", en: "AFM + EBSD map", fr: "Carte AFM + EBSD" } }]
     },
     {
@@ -198,7 +196,6 @@ const SITE = {
         en: ["Performed compression tests at different temperatures and strain rates, and selected heat treatments, characterisation techniques and processing environments."],
         fr: ["Essais de compression à différentes températures et vitesses de déformation, et choix des traitements thermiques, des techniques de caractérisation et des environnements d’élaboration."]
       },
-      tags: ["γ-TiAl"],
       photos: [{ img: "", cap: { es: "Probeta de compresión", en: "Compression specimen", fr: "Éprouvette de compression" } }]
     }
   ],
@@ -217,27 +214,27 @@ const SITE = {
     { id: "prog", name: { es: "Software", en: "Software", fr: "Logiciels" } }
   ],
   techniques: [
-    { cat: "mec", img: "img/photos/img_4901.jpg", title: { es: "Ensayos criogénicos", en: "Cryogenic testing", fr: "Essais cryogéniques" },
+    { cat: "mec", img: "img/tecnicas/ensayos-mecanicos/criogenicos.jpg", title: { es: "Ensayos criogénicos", en: "Cryogenic testing", fr: "Essais cryogéniques" },
       text: { es: "Tenacidad a la fractura y velocidad de crecimiento de grieta por fatiga desde temperatura ambiente hasta temperatura criogénica; tracción en helio líquido (4.2 K) y nitrógeno líquido (77 K).", en: "Fracture toughness and fatigue crack growth rate testing from room to cryogenic temperatures; tensile testing in liquid helium (4.2 K) and liquid nitrogen (77 K).", fr: "Ténacité à la rupture et vitesse de propagation de fissure en fatigue de la température ambiante aux températures cryogéniques ; traction dans l’hélium liquide (4,2 K) et l’azote liquide (77 K)." } },
-    { cat: "mec", img: "img/photos/img_4654.jpg", title: { es: "Tracción, compresión, cortadura y flexión", en: "Tensile, compression, shear and bending", fr: "Traction, compression, cisaillement et flexion" },
+    { cat: "mec", img: "img/tecnicas/ensayos-mecanicos/traccion-compresion.jpg", title: { es: "Tracción, compresión, cortadura y flexión", en: "Tensile, compression, shear and bending", fr: "Traction, compression, cisaillement et flexion" },
       text: { es: "Desde temperatura criogénica en helio líquido (4.2 K) y nitrógeno líquido (77 K), pasando por temperatura ambiente, hasta alta temperatura.", en: "From cryogenic temperatures in liquid helium (4.2 K) and liquid nitrogen (77 K) through room temperature to high temperatures.", fr: "Des températures cryogéniques dans l’hélium liquide (4,2 K) et l’azote liquide (77 K), en passant par la température ambiante, jusqu’aux hautes températures." } },
     { cat: "mec", img: "", title: { es: "Relajación de tensiones", en: "Stress relaxation", fr: "Relaxation de contraintes" },
       text: { es: "Compresión y relajación de tensiones a alta temperatura en simulador termomecánico Gleeble, para obtener volúmenes de activación.", en: "High-temperature compression and stress-relaxation testing on a Gleeble thermomechanical simulator, to derive activation volumes.", fr: "Compression et relaxation de contraintes à haute température sur simulateur thermomécanique Gleeble, pour déterminer les volumes d’activation." } },
     { cat: "mec", img: "", title: { es: "PIP", en: "PIP", fr: "PIP" },
       text: { es: "Ensayos PIP (Profilometry-based Indentation Plastometry) a temperatura ambiente y alta temperatura: curvas tensión–deformación a partir de una indentación.", en: "PIP testing (Profilometry-based Indentation Plastometry) at room and high temperature: stress–strain curves from an indentation.", fr: "Essais PIP (Profilometry-based Indentation Plastometry) à température ambiante et à haute température : courbes contrainte–déformation à partir d’une indentation." } },
-    { cat: "mec", img: "", title: { es: "Extensometría y DIC", en: "Extensometry and DIC", fr: "Extensométrie et DIC" },
+    { cat: "mec", img: "img/tecnicas/ensayos-mecanicos/extensometria.jpg", title: { es: "Extensometría y DIC", en: "Extensometry and DIC", fr: "Extensométrie et DIC" },
       text: { es: "Extensometría de contacto y óptica, incluida la correlación digital de imágenes (DIC).", en: "Contact and optical extensometry, including digital image correlation (DIC).", fr: "Extensométrie de contact et optique, y compris la corrélation d’images numériques (DIC)." } },
     { cat: "mec", img: "", title: { es: "Dureza y nanoindentación", en: "Hardness and nanoindentation", fr: "Dureté et nanoindentation" },
       text: { es: "Ensayos de dureza; nanoindentación a distintas temperaturas, incluida alta temperatura, en intermetálicos γ-TiAl.", en: "Hardness testing; nanoindentation at different temperatures, including high temperature, on γ-TiAl intermetallics.", fr: "Essais de dureté ; nanoindentation à différentes températures, y compris à haute température, sur intermétalliques γ-TiAl." } },
-    { cat: "mec", img: "img/photos/img_5265.jpg", title: { es: "Procedimientos de ensayo", en: "Test procedures", fr: "Procédures d’essai" },
+    { cat: "mec", img: "img/tecnicas/ensayos-mecanicos/procedimientos.jpg", title: { es: "Procedimientos de ensayo", en: "Test procedures", fr: "Procédures d’essai" },
       text: { es: "Desarrollo de procedimientos para ensayos criogénicos y para polímeros de cable envejecidos (CARE).", en: "Development of procedures for cryogenic testing and for aged cable polymers (CARE).", fr: "Développement de procédures pour les essais cryogéniques et les polymères de câbles vieillis (CARE)." } },
-    { cat: "mic", img: "", title: { es: "Microscopía óptica", en: "Optical microscopy", fr: "Microscopie optique" },
+    { cat: "mic", img: "img/tecnicas/microscopia/optica.jpg", title: { es: "Microscopía óptica", en: "Optical microscopy", fr: "Microscopie optique" },
       text: { es: "Preparación metalográfica y caracterización microestructural.", en: "Metallographic preparation and microstructural characterisation.", fr: "Préparation métallographique et caractérisation microstructurale." } },
     { cat: "mic", img: "", title: { es: "SEM + EDS", en: "SEM + EDS", fr: "MEB + EDS" },
       text: { es: "Microestructuras, superficies de fractura y análisis químico local.", en: "Microstructures, fracture surfaces and local chemical analysis.", fr: "Microstructures, faciès de rupture et analyse chimique locale." } },
-    { cat: "mic", img: "", title: { es: "EBSD", en: "EBSD", fr: "EBSD" },
+    { cat: "mic", img: "img/tecnicas/microscopia/ebsd.jpg", title: { es: "EBSD", en: "EBSD", fr: "EBSD" },
       text: { es: "Mapas de orientación, tamaño de grano y fases.", en: "Orientation maps, grain size and phases.", fr: "Cartes d’orientation, taille de grain et phases." } },
-    { cat: "mic", img: "", title: { es: "TEM", en: "TEM", fr: "MET" },
+    { cat: "mic", img: "img/tecnicas/microscopia/tem.jpg", title: { es: "TEM", en: "TEM", fr: "MET" },
       text: { es: "Caracterización de aceros austeníticos e intermetálicos γ-TiAl.", en: "Characterisation of austenitic steels and γ-TiAl intermetallics.", fr: "Caractérisation d’aciers austénitiques et d’intermétalliques γ-TiAl." } },
     { cat: "mic", img: "", title: { es: "AFM", en: "AFM", fr: "AFM" },
       text: { es: "Combinado con EBSD para detectar islas de austenita retenida en aceros de temple y partición.", en: "Combined with EBSD to detect retained austenite islands in quenching and partitioning steels.", fr: "Combinée à l’EBSD pour détecter des îlots d’austénite résiduelle dans des aciers trempés et partitionnés." } },
@@ -245,7 +242,7 @@ const SITE = {
       text: { es: "Análisis de cortes FIB: profundidad de defectos y espesor de capas de óxido por corrosión.", en: "Analysis of FIB cross-sections: defect depth and corrosion oxide layer thickness.", fr: "Analyse de coupes FIB : profondeur des défauts et épaisseur des couches d’oxyde de corrosion." } },
     { cat: "mic", img: "", title: { es: "XRD", en: "XRD", fr: "DRX" },
       text: { es: "Identificación de fases.", en: "Phase identification.", fr: "Identification des phases." } },
-    { cat: "mic", img: "img/photos/img_45562.jpg", title: { es: "Análisis térmico y químico · DSC (OIT) · FTIR", en: "Thermal and chemical analysis · DSC (OIT) · FTIR", fr: "Analyse thermique et chimique · DSC (OIT) · FTIR" },
+    { cat: "mic", img: "img/tecnicas/microscopia/dsc-ftir.jpg", title: { es: "Análisis térmico y químico · DSC (OIT) · FTIR", en: "Thermal and chemical analysis · DSC (OIT) · FTIR", fr: "Analyse thermique et chimique · DSC (OIT) · FTIR" },
       text: { es: "Calorimetría diferencial de barrido (DSC), determinación del tiempo de inducción a la oxidación (OIT) y espectroscopía FTIR para la caracterización de polímeros.", en: "Differential scanning calorimetry (DSC), oxidation induction time (OIT) determination and FTIR spectroscopy for polymer characterisation.", fr: "Calorimétrie différentielle à balayage (DSC), détermination du temps d’induction à l’oxydation (OIT) et spectroscopie FTIR pour la caractérisation des polymères." } },
     { cat: "mic", img: "", title: { es: "Análisis de imagen", en: "Image analysis", fr: "Analyse d’images" },
       text: { es: "Análisis automatizado: tamaño de partícula de polvo pulvimetalúrgico y porosidad en uniones por brazing.", en: "Automated analysis: powder particle size statistics and porosity in brazed joints.", fr: "Analyse automatisée : taille de particules de poudres et porosité des assemblages brasés." } },
@@ -261,9 +258,9 @@ const SITE = {
       text: { es: "Diseño de probetas, utillajes y herramientas de ensayo con CATIA, SolidWorks y Solid Edge.", en: "Design of test specimens, fixtures and tooling with CATIA, SolidWorks and Solid Edge.", fr: "Conception d’éprouvettes, d’outillages et de montages d’essai avec CATIA, SolidWorks et Solid Edge." } },
     { cat: "sim", img: "", title: { es: "Abaqus · Thermo-Calc", en: "Abaqus · Thermo-Calc", fr: "Abaqus · Thermo-Calc" },
       text: { es: "Elementos finitos y termodinámica computacional.", en: "Finite elements and computational thermodynamics.", fr: "Éléments finis et thermodynamique numérique." } },
-    { cat: "org", img: "img/photos/img_06532.jpg", title: { es: "Campañas de ensayo e irradiación", en: "Test and irradiation campaigns", fr: "Campagnes d’essais et d’irradiation" },
+    { cat: "org", img: "img/tecnicas/campanas/irradiacion.jpg", title: { es: "Campañas de ensayo e irradiación", en: "Test and irradiation campaigns", fr: "Campagnes d’essais et d’irradiation" },
       text: { es: "Planificación, preparación y ejecución, diseño de muestreo y de montajes, y externalización de contratos de ensayo.", en: "Planning, preparation and execution, design of sampling and set-ups, and outsourcing of testing contracts.", fr: "Planification, préparation et exécution, conception de l’échantillonnage et des montages, et externalisation de contrats d’essais." } },
-    { cat: "org", img: "img/photos/forja-foto.jpg", title: { es: "Colaboraciones", en: "Collaborations", fr: "Collaborations" },
+    { cat: "org", img: "img/tecnicas/campanas/colaboraciones.jpg", title: { es: "Colaboraciones", en: "Collaborations", fr: "Collaborations" },
       text: { es: "Con socios, instalaciones de ensayo e industria: ITER, F4E y forjadores de metales.", en: "With partners, test facilities and industry: ITER, F4E and metal forging suppliers.", fr: "Avec des partenaires, des installations d’essai et l’industrie : ITER, F4E et des forgerons." } },
     { cat: "org", img: "", title: { es: "Cualificación de proveedores", en: "Supplier qualification", fr: "Qualification de fournisseurs" },
       text: { es: "Cualificación de proveedores y de procesos de fabricación.", en: "Qualification of suppliers and manufacturing processes.", fr: "Qualification de fournisseurs et de procédés de fabrication." } },
@@ -285,7 +282,6 @@ const SITE = {
      Cada caso tiene su propia página con Contexto · Cómo lo abordé · Resultado */
   cases: [
     {
-      tag: { es: "Failure analysis", en: "Failure analysis", fr: "Analyse de défaillance" },
       title: { es: "[Título del caso]", en: "[Case title]", fr: "[Titre du cas]" },
       context: { es: "[Qué pieza falló, en qué condiciones y por qué importaba]", en: "[Which part failed, under what conditions and why it mattered]", fr: "[Quelle pièce a cédé, dans quelles conditions et pourquoi c’était important]" },
       approach: { es: "[Qué técnicas usaste: inspección visual, fractografía SEM, EDS, metalografía…]", en: "[Which techniques you used: visual inspection, SEM fractography, EDS, metallography…]", fr: "[Quelles techniques : inspection visuelle, fractographie MEB, EDS, métallographie…]" },
@@ -296,7 +292,6 @@ const SITE = {
       ]
     },
     {
-      tag: { es: "Materiales", en: "Materials", fr: "Matériaux" },
       title: { es: "Acero FXM-19 forjado a 4.2 K para imanes de fusión", en: "Forged FXM-19 steel at 4.2 K for fusion magnets", fr: "Acier FXM-19 forgé à 4,2 K pour aimants de fusion" },
       context: {
         es: "Los tokamaks compactos con imanes superconductores de alta temperatura necesitan materiales estructurales que aguanten tensiones mucho mayores a temperatura criogénica. El acero austenítico FXM-19 es un candidato.",
@@ -306,13 +301,12 @@ const SITE = {
       approach: { es: "[Qué ensayos y caracterización hiciste]", en: "[What tests and characterisation you did]", fr: "[Quels essais et caractérisations tu as réalisés]" },
       result: { es: "[Resultados clave]\nPresentado en ICMC 2024.", en: "[Key results]\nPresented at ICMC 2024.", fr: "[Résultats clés]\nPrésenté à l’ICMC 2024." },
       photos: [
-        { img: "img/videos/forja.webp", cap: { es: "Forja", en: "Forging", fr: "Forgeage" } },
-        { img: "img/photos/img_5128.jpg", cap: { es: "Probetas de tenacidad a la fractura", en: "Fracture toughness specimens", fr: "Éprouvettes de ténacité à la rupture" } },
-        { img: "img/photos/img_5514.jpg", cap: { es: "Probeta en nitrógeno líquido", en: "Specimen in liquid nitrogen", fr: "Éprouvette dans l’azote liquide" } }
+        { img: "img/casos/fxm19-4k/forja.webp", cap: { es: "Forja", en: "Forging", fr: "Forgeage" } },
+        { img: "img/casos/fxm19-4k/probetas-tenacidad.jpg", cap: { es: "Probetas de tenacidad a la fractura", en: "Fracture toughness specimens", fr: "Éprouvettes de ténacité à la rupture" } },
+        { img: "img/casos/fxm19-4k/nitrogeno-liquido.jpg", cap: { es: "Probeta en nitrógeno líquido", en: "Specimen in liquid nitrogen", fr: "Éprouvette dans l’azote liquide" } }
       ]
     },
     {
-      tag: { es: "Conformado", en: "Forming", fr: "Formage" },
       title: { es: "Diagrama límite de conformado del cobre OFE para cavidades SRF", en: "Forming limit diagram of Cu-OFE for SRF cavities", fr: "Courbe limite de formage du cuivre OFE pour cavités SRF" },
       context: {
         es: "Las cavidades superconductoras recubiertas previstas para el FCC necesitan sustratos de cobre sin soldaduras. El hidroconformado de tubos es una opción, pero apenas se había aplicado a chapa gruesa de cobre OFE.",
