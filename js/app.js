@@ -6,14 +6,14 @@
   const LANGS = ["es", "en", "fr"];
   let lang = "es";
   try { const saved = localStorage.getItem("brp-lang"); if (LANGS.includes(saved)) lang = saved; } catch (e) {}
-  let techFilter = "all";
+  let techFilter = null;   // se fija a la primera categoría
 
   /* Textos fijos de la interfaz (menú, títulos, botones) */
   const UI = {
     tabs: [
       ["inicio",        { es: "Inicio", en: "Home", fr: "Accueil" }],
       ["investigacion", { es: "Investigación y proyectos", en: "Research & projects", fr: "Recherche et projets" }],
-      ["tecnicas",      { es: "Técnicas", en: "Techniques", fr: "Techniques" }],
+      ["tecnicas",      { es: "Competencias", en: "Skills", fr: "Compétences" }],
       ["casos",         { es: "Casos de estudio", en: "Study cases", fr: "Études de cas" }],
       ["publicaciones", { es: "Publicaciones", en: "Publications", fr: "Publications" }],
       ["contacto",      { es: "Contacto", en: "Contact", fr: "Contact" }]
@@ -28,7 +28,7 @@
     result: { es: "Resultado", en: "Result", fr: "Résultat" },
     read: { es: "Leer el caso →", en: "Read the case →", fr: "Lire le cas →" },
     back: { es: "← Todos los casos", en: "← All cases", fr: "← Tous les cas" },
-    tech: { es: "Técnicas", en: "Techniques", fr: "Techniques" },
+    tech: { es: "Competencias", en: "Skills", fr: "Compétences" },
     techLede: { es: "Lo que sé hacer en el laboratorio y delante del ordenador.", en: "What I can do in the lab and at the computer.", fr: "Ce que je sais faire au laboratoire et sur ordinateur." },
     all: { es: "Todas", en: "All", fr: "Toutes" },
     about: { es: "Sobre mí", en: "About me", fr: "À propos" },
@@ -36,7 +36,7 @@
     langs: { es: "Idiomas", en: "Languages", fr: "Langues" },
     interests: { es: "Aficiones", en: "Interests", fr: "Loisirs" },
     pubs: { es: "Publicaciones", en: "Publications", fr: "Publications" },
-    types: { art: { es: "Artículo", en: "Article", fr: "Article" }, conf: { es: "Congreso", en: "Conference", fr: "Conférence" }, chap: { es: "Capítulo", en: "Chapter", fr: "Chapitre" }, sub: { es: "Enviado", en: "Submitted", fr: "Soumis" } },
+    types: { art: { es: "Artículo", en: "Article", fr: "Article" }, conf: { es: "Congreso", en: "Conference", fr: "Conférence" }, chap: { es: "Capítulo", en: "Chapter", fr: "Chapitre" }, talk: { es: "Ponencia", en: "Talk", fr: "Présentation orale" }, poster: { es: "Póster", en: "Poster", fr: "Poster" }, sub: { es: "Enviado", en: "Submitted", fr: "Soumis" } },
     contact: { es: "Contacto", en: "Contact", fr: "Contact" },
     contactLede: { es: "Abierta a colaborar en materiales para entornos criogénicos y de fusión. Para contactar conmigo, escríbeme por LinkedIn.", en: "Open to collaborations on materials for cryogenic and fusion environments. To get in touch, message me on LinkedIn.", fr: "Ouverte aux collaborations sur les matériaux pour environnements cryogéniques et de fusion. Pour me contacter, écrivez-moi sur LinkedIn." },
     writeIn: { es: "Escríbeme por LinkedIn", en: "Message me on LinkedIn", fr: "M’écrire sur LinkedIn" },
@@ -59,7 +59,8 @@
     ? (/\.(mov|mp4|webm)$/i.test(src)
         ? `<div class="photo ${ratio}"><video src="${esc(src)}" muted autoplay loop playsinline preload="metadata" aria-label="${esc(t(label))}"></video></div>`
         : `<div class="photo ${ratio}"><img src="${esc(src)}" alt="${esc(t(label))}" loading="lazy"></div>`)
-    : `<div class="photo empty ${ratio}"><span>${esc(t(label))}</span></div>`;
+    : "";   // sin foto: no se muestra nada
+  const real = (list) => (list || []).filter((f) => f && f.img);
   const ICON = {
     linkedin: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1V21H9z"/></svg>',
     orcid: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM8.3 17H6.7V9.4h1.6zm-.8-8.9a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM10 9.4h4.2c2.6 0 4 1.8 4 3.8 0 2.2-1.6 3.8-4 3.8H10zm1.6 1.4v4.8h2.5c1.8 0 2.5-1.3 2.5-2.4 0-1.4-.9-2.4-2.5-2.4z"/></svg>',
@@ -128,7 +129,7 @@
             <h2>${esc(t(p.title))}</h2>
             <p>${esc(t(p.text))}</p>
             ${did.length ? `<div class="tag" style="margin-bottom:6px">${t(UI.did)}</div><ul class="did">${did.map((d) => `<li>${esc(d)}</li>`).join("")}</ul>` : ""}
-            ${p.photos && p.photos.length ? `<div class="gallery">${p.photos.map((f) => `<figure>${photo(f.img, UI.photo, "r43")}<figcaption>${esc(t(f.cap))}</figcaption></figure>`).join("")}</div>` : ""}
+            ${real(p.photos).length ? `<div class="gallery">${real(p.photos).map((f) => `<figure>${photo(f.img, UI.photo, "r43")}<figcaption>${esc(t(f.cap))}</figcaption></figure>`).join("")}</div>` : ""}
           </article>
         </li>`;
       }).join("")}</ol>
@@ -136,6 +137,7 @@
   }
 
   function techniques() {
+    if (!techFilter) techFilter = "all";
     const list = SITE.techniques.filter((x) => techFilter === "all" || x.cat === techFilter);
     const btn = (id, name) => `<button data-filter="${id}" aria-pressed="${techFilter === id}">${esc(t(name))}</button>`;
     return `<div class="wrap page">
@@ -144,7 +146,7 @@
       <div class="filter">${btn("all", UI.all)}${SITE.categories.map((c) => btn(c.id, c.name)).join("")}</div>
       <div class="grid">${list.map((x) => {
         const cat = SITE.categories.find((c) => c.id === x.cat);
-        return `<article class="card">${photo(x.img, x.title, "r169")}
+        return `<article class="card${x.img ? "" : " no-img"}">${photo(x.img, x.title, "r169")}
           <div class="body"><span class="tag">${cat ? esc(t(cat.name)) : ""}</span><h3>${esc(t(x.title))}</h3><p class="pre">${esc(t(x.text))}</p></div>
         </article>`;
       }).join("")}</div>
@@ -157,7 +159,7 @@
       <p class="lede">${t(UI.casesLede)}</p>
       <div class="cases">${SITE.cases.map((c, i) => `
         <a class="case-card" href="#caso-${i + 1}">
-          ${photo(c.photos[0] && c.photos[0].img, c.photos[0] ? c.photos[0].cap : UI.photo, "r169")}
+          ${real(c.photos).length ? photo(real(c.photos)[0].img, real(c.photos)[0].cap, "r169") : ""}
           <div class="body"><h3>${esc(t(c.title))}</h3><p>${esc(t(c.context))}</p><span class="more">${t(UI.read)}</span></div>
         </a>`).join("")}</div>
     </div>`;
@@ -170,14 +172,14 @@
       <a class="back" href="#casos">${t(UI.back)}</a>
       <div class="case-head">
         <div><h1>${esc(t(c.title))}</h1></div>
-        ${photo(c.photos[0] && c.photos[0].img, c.photos[0] ? c.photos[0].cap : UI.photo, "r169")}
+        ${real(c.photos).length ? photo(real(c.photos)[0].img, real(c.photos)[0].cap, "r169") : ""}
       </div>
       <div class="steps">
         <div><h3>${t(UI.context)}</h3><p class="pre">${esc(t(c.context))}</p></div>
         <div><h3>${t(UI.approach)}</h3><p class="pre">${esc(t(c.approach))}</p></div>
         <div><h3>${t(UI.result)}</h3><p class="pre">${esc(t(c.result))}</p></div>
       </div>
-      <div class="gallery">${c.photos.map((f) => `<figure>${photo(f.img, UI.photo, "r43")}<figcaption>${esc(t(f.cap))}</figcaption></figure>`).join("")}</div>
+      ${real(c.photos).length > 1 ? `<div class="gallery">${real(c.photos).slice(1).map((f) => `<figure>${photo(f.img, UI.photo, "r43")}<figcaption>${esc(t(f.cap))}</figcaption></figure>`).join("")}</div>` : ""}
     </div>`;
   }
 
@@ -191,6 +193,7 @@
           <div class="t">${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</div>
           <div class="a">${esc(p.authors).replace(me, "<b>$1</b>")}</div>
           <div class="v"><span class="ty">${t(UI.types[p.type] || "")}</span>${esc(p.venue)}</div>
+          ${p.note ? `<div class="award">${esc(t(p.note))}</div>` : ""}
         </div>`).join("")}
       </div></section>`).join("")}
     </div>`;
